@@ -16,8 +16,10 @@ jobs:
       run: |-
         mkdir -p instances/fedi.simonwillison.net
         mkdir -p instances/vis.social
+        mkdir -p instances/mastodon.social
         curl https://fedi.simonwillison.net/api/v1/instance/peers | jq . > instances/fedi.simonwillison.net/peers.json
         curl https://vis.social/api/v1/instance/peers  | jq . > instances/vis.social/peers.json
+        curl https://mastodon.social/api/v1/instance/peers | jq . > instances/mastodon.social/peers.json
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
